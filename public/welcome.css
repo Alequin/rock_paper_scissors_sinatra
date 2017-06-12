@@ -1,0 +1,15 @@
+#welcome_section{
+  line-height: 20px;
+}
+
+#welcome_section h1, #welcome_section h2{
+  text-align: center;
+}
+
+#welcome_section ol{
+  padding-left: 10px;
+}
+
+#welcome_section ul li{
+  margin: 15px;
+}
