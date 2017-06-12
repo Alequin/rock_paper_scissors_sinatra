@@ -1,5 +1,10 @@
 body{
   margin: 0;
   padding: 0;
-  background-color: black;
+}
+
+#primary_container{
+  width: 600px;
+  height: 500px;
+  margin: auto;
 }
