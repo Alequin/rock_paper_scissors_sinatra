@@ -6,10 +6,9 @@ class RockPaperScissors
     @symbol = symbol.downcase()
   end
 
-  def play_against(opponent_symbol)
-
+  def compare(opponent_symbol)
     if(@symbol == opponent_symbol.symbol)
-      return "#{@symbol} Vs #{opponent_symbol}: It's a Draw"
+      return :draw
     end
 
     return result_when_rock(opponent_symbol) if(@symbol == "rock")
@@ -18,39 +17,51 @@ class RockPaperScissors
 
   end
 
+  def play_against(opponent_symbol)
+
+    result = compare(opponent_symbol)
+
+    opponent = opponent_symbol.symbol
+    output = "#{@symbol} VS #{opponent}: "
+
+    return output + "#{symbol} Wins" if(result == :win)
+    return output + "#{symbol} Lost" if(result == :loose)
+    return output + "It's a draw" if(result == :draw)
+
+  end
+
   private
 
   def result_when_rock(opponent_symbol)
     case opponent_symbol.symbol
     when "scissors"
-      return "Rock Vs Scissors: Rock Wins"
+      return :win
     when "rock"
-      return "Rock Vs Rock: It's a Draw"
+      return :draw
     when "paper"
-      return "Rock Vs Paper: Paper Wins"
+      return :loose
     end
   end
 
   def result_when_scissors(opponent_symbol)
     case opponent_symbol.symbol
     when "scissors"
-      return "Scissors Vs Scissors: It's a Draw"
+      return :draw
     when "rock"
-      return "Scissors Vs Rock: Rock Wins"
+      return :loose
     when "paper"
-      return "Scissors Vs Paper: Scissors Win"
+      return :win
     end
   end
 
   def result_when_paper(opponent_symbol)
     case opponent_symbol.symbol
     when "scissors"
-      return "Paper Vs Scissors: Scissors Win"
+      return :loose
     when "rock"
-      return "Paper Vs Rock: Paper Wins"
+      return :win
     when "paper"
-      return "Paper Vs Paper: It's a Draw"
+      return :draw
     end
   end
-
 end
