@@ -22,10 +22,10 @@ class RockPaperScissors
     result = compare(opponent_symbol)
 
     opponent = opponent_symbol.symbol
-    output = "#{@symbol} VS #{opponent}: "
+    output = "#{@symbol.capitalize()} VS #{opponent.capitalize()}: "
 
-    return output + "#{symbol} Wins" if(result == :win)
-    return output + "#{symbol} Lost" if(result == :loose)
+    return output + "#{symbol.capitalize()} Wins" if(result == :win)
+    return output + "#{opponent.capitalize()} Wins" if(result == :loose)
     return output + "It's a draw" if(result == :draw)
 
   end
